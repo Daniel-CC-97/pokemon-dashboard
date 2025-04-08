@@ -1,21 +1,7 @@
-const app = document.getElementById("app");
+import PokemonDashboard from "./PokemonDashboard";
 
-async function fetchPokemonList() {
-  try {
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
-    const data = await res.json();
-    console.log("Fetched Pokémon:", data.results);
+// Get the container where the dashboard will be rendered
+const appContainer = document.getElementById("app");
 
-    app.innerHTML = `
-      <h1>Pokémon List</h1>
-      <ul>
-        ${data.results.map((p: any) => `<li>${p.name}</li>`).join("")}
-      </ul>
-    `;
-  } catch (error) {
-    console.error("Failed to fetch Pokémon:", error);
-    app.innerHTML = `<p>Something went wrong.</p>`;
-  }
-}
-
-fetchPokemonList();
+// Initialise the component and render it in the container
+new PokemonDashboard(appContainer);
