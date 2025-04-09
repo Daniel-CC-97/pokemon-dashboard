@@ -11,6 +11,7 @@
   --text: #e0e0e0;
   --accent: #4cc9f0;
   --card-bg: #2f2f48;
+  --card-bg-hover: #4a4a6a;
   --card-hover: #3b3b5a;
 }
 
@@ -32,15 +33,28 @@ body {
   flex-wrap: wrap;
   list-style: none;
   gap: 5px;
+
+  /* :hover {
+    background-color: red;
+    transform: scale(1.05);
+  } */
 }
 
 .pokemon-card {
   width: calc(20% - 5px);
-  border: solid 1px var(--accent);
+  border: solid 1px var(--card-bg-hover);
   border-radius: 10px;
   background-color: var(--card-bg);
   padding: 2px;
   text-align: center;
+  transition: 0.1s ease-in-out;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(5px 5px 5px black);
+  cursor: pointer;
+  background-color: var(--card-bg-hover);
 }
 
 .pokemon-image {
